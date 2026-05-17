@@ -1,0 +1,8 @@
+{
+  "name": "مورتال - Mortal",
+  "description": "موقع رياضي متكامل لمورتال جيم، يضم خدمات التدريب وخطط الاشتراك.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
