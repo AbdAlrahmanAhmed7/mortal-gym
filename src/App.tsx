@@ -89,6 +89,29 @@ const membershipPlans = [
   }
 ];
 
+const onlineCoachingFeatures = [
+  {
+    title: "خطة تدريب مفصلة",
+    desc: "تمارين مصممة خصيصاً لمستواك وللأدوات المتاحة عندك، سواء بتتمرن في البيت أو في الجيم.",
+    icon: <Dumbbell className="w-6 h-6" />
+  },
+  {
+    title: "برنامج غذائي مرن",
+    desc: "مش بس دايت، ده نظام حياة. بنحسبلك سعراتك وماكروز جسمك وبنعملك منيو متنوع بالأكل اللي بتحبه.",
+    icon: <Timer className="w-6 h-6" />
+  },
+  {
+    title: "متابعة أسبوعية",
+    desc: "بنراجع تطورك كل أسبوع وبنعدل في الخطط بناءً على نتايجك وصورك وقياساتك عشان نضمن استمرارك.",
+    icon: <Users className="w-6 h-6" />
+  },
+  {
+    title: "تواصل مباشر 24/7",
+    desc: "معاك على الواتساب للرد على أي استفسار بخصوص التكنيك أو الأكل في أي وقت خلال اليوم.",
+    icon: <Mail className="w-6 h-6" />
+  }
+];
+
 const trainers = [
   {
     name: "ملاك",
@@ -146,6 +169,7 @@ export default function App() {
             <div className="hidden md:flex items-center gap-8 text-[10px] font-black tracking-widest text-[#888]">
               <a href="#features" className="hover:text-primary transition-colors">المميزات</a>
               <a href="#trainers" className="hover:text-primary transition-colors">المدربون</a>
+              <a href="#online-coaching" className="hover:text-primary transition-colors">تدريب أونلاين</a>
               <a href="#feedback" className="hover:text-primary transition-colors">قالوا عنا</a>
               <a href="#footer" className="hover:text-primary transition-colors">عن الجيم</a>
               <a href="#pricing" className="bg-primary text-black px-6 py-2 text-xs font-black tracking-widest hover:bg-white transition-colors">
@@ -173,6 +197,7 @@ export default function App() {
             >
               <a href="#features" onClick={() => setIsMenuOpen(false)}>المميزات</a>
               <a href="#trainers" onClick={() => setIsMenuOpen(false)}>المدربون</a>
+              <a href="#online-coaching" onClick={() => setIsMenuOpen(false)}>تدريب أونلاين</a>
               <a href="#feedback" onClick={() => setIsMenuOpen(false)}>قالوا عنا</a>
               <a href="#footer" onClick={() => setIsMenuOpen(false)}>عن الجيم</a>
               <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="bg-primary text-black px-6 py-3 rounded-xl font-bold w-full text-center">
@@ -299,6 +324,40 @@ export default function App() {
                 <img src="/src/assets/images/trainer_female_1_1779013301373.png" className="w-full h-full object-cover" alt="Elite Coach" />
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Online Coaching Section */}
+      <section id="online-coaching" className="py-24 bg-zinc-900 border-b border-surface relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-20 opacity-[0.03] pointer-events-none">
+          <Zap size={400} strokeWidth={1} />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row gap-16 items-center">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-5xl md:text-8xl font-black italic mb-8 leading-none">
+                تدريب <br />
+                <span className="text-primary">أونلاين</span>
+              </h2>
+              <p className="text-[#888] text-xs font-bold uppercase tracking-[0.2em] leading-loose mb-12 max-w-md">
+                مش لازم تكون قريب مننا عشان تتمرن معانا. بنوصلك في أي مكان في العالم وبنقدملك نظام متكامل يوصلك لهدفك بأسرع وقت.
+              </p>
+              <a href="#pricing" className="bg-primary text-black px-12 py-5 font-black text-xs tracking-widest hover:bg-white transition-all transform hover:-translate-y-1 block w-fit">
+                استكشف باقات الأونلاين
+              </a>
+            </div>
+            <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {onlineCoachingFeatures.map((feat, i) => (
+                <div key={i} className="bg-black p-8 border border-white/5 hover:border-primary transition-colors group">
+                  <div className="text-primary mb-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                    {feat.icon}
+                  </div>
+                  <h4 className="text-lg font-black italic mb-3 tracking-tighter uppercase">{feat.title}</h4>
+                  <p className="text-[#555] text-[10px] font-bold uppercase tracking-wider leading-relaxed group-hover:text-[#888] transition-colors">{feat.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -447,6 +506,7 @@ export default function App() {
               <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
                 <li><a href="#features" className="hover:text-primary">Facilities</a></li>
                 <li><a href="#trainers" className="hover:text-primary">Elite Coaches</a></li>
+                <li><a href="#online-coaching" className="hover:text-primary">Online Coaching</a></li>
                 <li><a href="#feedback" className="hover:text-primary">Testimonials</a></li>
                 <li><a href="#pricing" className="hover:text-primary">Membership</a></li>
               </ul>
@@ -457,7 +517,7 @@ export default function App() {
               <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
                 <li className="flex items-center gap-3">Cairo, Egypt</li>
                 <li className="text-primary">+20 123 456 7890</li>
-                <li className="underline underline-offset-4">info@titancore.com</li>
+                <li className="underline underline-offset-4">info@mortalgym.com</li>
               </ul>
             </div>
           </div>
