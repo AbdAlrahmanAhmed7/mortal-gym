@@ -343,9 +343,9 @@ export default function App() {
               <p className="text-[#888] text-xs font-bold uppercase tracking-[0.2em] leading-loose mb-12 max-w-md">
                 مش لازم تكون قريب مننا عشان تتمرن معانا. بنوصلك في أي مكان في العالم وبنقدملك نظام متكامل يوصلك لهدفك بأسرع وقت.
               </p>
-              <a href="#pricing" className="bg-primary text-black px-12 py-5 font-black text-xs tracking-widest hover:bg-white transition-all transform hover:-translate-y-1 block w-fit">
-                استكشف باقات الأونلاين
-              </a>
+              <button disabled className="bg-[#333] text-[#555] px-12 py-5 font-black text-xs tracking-widest uppercase cursor-not-allowed block w-fit">
+                قريباً (Coming Soon)
+              </button>
             </div>
             <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {onlineCoachingFeatures.map((feat, i) => (
