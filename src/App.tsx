@@ -24,6 +24,27 @@ import {
 } from 'lucide-react';
 
 // Pricing Data
+const feedbackData = [
+  {
+    name: "ياسين علي",
+    role: "بطل كمال أجسام",
+    text: "تجربة خيالية يا جماعة! مورتال مش مجرد جيم، ده مجتمع بجد بيزقك لقدام كل يوم. الأجهزة هنا أنضف وأحدث حاجة شوفتها في المنطقة كلها.",
+    rating: 5
+  },
+  {
+    name: "ليلى حسن",
+    role: "مدربة يوغا",
+    text: "بجد المكان هنا مريح جداً. النظام والشياكة في التعامل والمدربين مستواهم عالي قوي. لفيت على جيمات كتير بس مورتال في حتة تانية خالص.",
+    rating: 5
+  },
+  {
+    name: "كريم ممدوح",
+    role: "عضو نشط",
+    text: "أحسن قراراتي بجد إني اشتركت هنا. الباقات بجد مدروسة ومناسبة لأي حد، والمدربين مش بيسيبوك لحظة، دايماً معاك وبيشجعوك.",
+    rating: 4
+  }
+];
+
 const membershipPlans = [
   {
     name: "الباقة الأساسية",
@@ -125,6 +146,7 @@ export default function App() {
             <div className="hidden md:flex items-center gap-8 text-[10px] font-black tracking-widest text-[#888]">
               <a href="#features" className="hover:text-primary transition-colors">المميزات</a>
               <a href="#trainers" className="hover:text-primary transition-colors">المدربون</a>
+              <a href="#feedback" className="hover:text-primary transition-colors">قالوا عنا</a>
               <a href="#footer" className="hover:text-primary transition-colors">عن الجيم</a>
               <a href="#pricing" className="bg-primary text-black px-6 py-2 text-xs font-black tracking-widest hover:bg-white transition-colors">
                 اشترك الآن
@@ -151,6 +173,7 @@ export default function App() {
             >
               <a href="#features" onClick={() => setIsMenuOpen(false)}>المميزات</a>
               <a href="#trainers" onClick={() => setIsMenuOpen(false)}>المدربون</a>
+              <a href="#feedback" onClick={() => setIsMenuOpen(false)}>قالوا عنا</a>
               <a href="#footer" onClick={() => setIsMenuOpen(false)}>عن الجيم</a>
               <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="bg-primary text-black px-6 py-3 rounded-xl font-bold w-full text-center">
                 اشترك الآن
@@ -348,6 +371,52 @@ export default function App() {
         </div>
       </section>
 
+      {/* Feedback Section */}
+      <section id="feedback" className="py-24 bg-zinc-950 border-b border-surface overflow-hidden relative">
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 opacity-[0.02] -rotate-90 pointer-events-none">
+          <span className="text-[20rem] font-black italic">VOICES</span>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-20 gap-8">
+            <h2 className="text-5xl md:text-7xl font-black italic">أصوات <span className="text-primary">الوحوش</span></h2>
+            <p className="text-[#888] text-[10px] font-black uppercase tracking-[0.3em]">ماذا يقول أعضاء مورتال سكاود؟</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {feedbackData.map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="bg-black p-10 border border-surface hover:border-primary transition-colors group"
+              >
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star 
+                      key={idx} 
+                      size={14} 
+                      className={idx < item.rating ? "fill-primary text-primary" : "text-[#333]"} 
+                    />
+                  ))}
+                </div>
+                <p className="text-sm font-bold uppercase tracking-wider leading-relaxed mb-8 text-gray-300 italic group-hover:text-white transition-colors">
+                  "{item.text}"
+                </p>
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-surface rounded-full flex items-center justify-center font-black text-primary border border-border">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-black tracking-widest uppercase">{item.name}</h4>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer id="footer" className="bg-black border-t-8 border-surface pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -376,8 +445,9 @@ export default function App() {
             <div>
               <h4 className="text-xs font-black tracking-widest text-[#555] mb-8 uppercase">Navigation</h4>
               <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
-                <li><a href="#about" className="hover:text-primary">Facilities</a></li>
+                <li><a href="#features" className="hover:text-primary">Facilities</a></li>
                 <li><a href="#trainers" className="hover:text-primary">Elite Coaches</a></li>
+                <li><a href="#feedback" className="hover:text-primary">Testimonials</a></li>
                 <li><a href="#pricing" className="hover:text-primary">Membership</a></li>
               </ul>
             </div>
