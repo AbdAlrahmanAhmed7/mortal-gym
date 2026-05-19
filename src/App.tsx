@@ -23,6 +23,11 @@ import {
   X
 } from 'lucide-react';
 
+import heroImage from './assets/images/gym_hero_banner_1779013270663.png';
+import trainerMale from './assets/images/trainer_male_1_1779013287067.png';
+import trainerFemale from './assets/images/trainer_female_1_1779013301373.png';
+
+
 // Pricing Data
 const feedbackData = [
   {
@@ -116,15 +121,16 @@ const trainers = [
   {
     name: "ملاك",
     specialty: "مدرب كمال أجسام ولياقة",
-    image: "/src/assets/images/trainer_male_1_1779013287067.png",
+    image: trainerMale,
     experience: "10 سنوات خبرة"
   },
   {
     name: "نور",
     specialty: "مدربة يوغا وبيلاتس",
-    image: "/src/assets/images/trainer_female_1_1779013301373.png",
+    image: trainerFemale,
     experience: "7 سنوات خبرة"
   },
+
   {
     name: "طارق",
     specialty: "أخصائي تغذية رياضية",
@@ -212,11 +218,12 @@ export default function App() {
       <section className="relative h-screen flex items-center overflow-hidden border-b-8 border-surface">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/gym_hero_banner_1779013270663.png" 
+            src={heroImage} 
             alt="Gym Background" 
             className="w-full h-full object-cover opacity-30 scale-110"
             referrerPolicy="no-referrer"
           />
+
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black to-transparent"></div>
         </div>
 
@@ -318,12 +325,13 @@ export default function App() {
               className="grid grid-cols-2 gap-4 order-1 md:order-2"
             >
               <div className="aspect-[3/4] overflow-hidden border-2 border-surface grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/src/assets/images/trainer_male_1_1779013287067.png" className="w-full h-full object-cover" alt="Elite Coach" />
+                <img src={trainerMale} className="w-full h-full object-cover" alt="Elite Coach" />
               </div>
               <div className="aspect-[3/4] overflow-hidden border-2 border-surface grayscale translate-y-8 hover:grayscale-0 transition-all duration-500">
-                <img src="/src/assets/images/trainer_female_1_1779013301373.png" className="w-full h-full object-cover" alt="Elite Coach" />
+                <img src={trainerFemale} className="w-full h-full object-cover" alt="Elite Coach" />
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>
